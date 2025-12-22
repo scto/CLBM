@@ -1,13 +1,17 @@
 [versions]
 # ... PROJECT ...
+accompanist = "0.37.0"
+androidDesugarJdkLibs = "2.1.4"
+
 androidGradlePlugin = "8.11.1"
+androidTools = "31.13.1"
+
 kotlin = "2.2.21"
-ksp = "2.3.3"
+ksp = "2.3.1"
 
 java = "17"
 
 gmsPlugin = "4.4.4"
-
 
 dokka = "2.1.0"
 dokkaMermaid = "0.6.0"
@@ -82,20 +86,24 @@ firebase-perf = { id = "com.google.firebase.firebase-perf", version.ref = "fireb
 gms = { id = "com.google.gms.google-services", version.ref = "gmsPlugin" }
 dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+room = { id = "androidx.room", version.ref = "room" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets" }
 kotlin-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 google-oss-licenses = { id = "com.google.android.gms.oss-licenses-plugin", version.ref = "googleOssPlugin" }
 
 # ... Custom Plugins ...
+# Dependencies of the included build-logic
+jetpack-application = { id = "com.scto.clbm.application" }
 jetpack-library = { id = "com.scto.clbm.library" }
 jetpack-ui-library = { id = "com.scto.clbm.ui.library" }
-jetpack-application = { id = "com.scto.clbm.application" }
 jetpack-dagger-hilt = { id = "com.scto.clbm.dagger.hilt" }
 jetpack-firebase = { id = "com.scto.clbm.firebase" }
 jetpack-dokka = { id = "com.scto.clbm.dokka" }
+jetpack-room = { id = "com.scto.clbm.room" }
 
 [libraries]
+android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 # ... CORE:ANDROID ...
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
 kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
@@ -163,6 +171,7 @@ identity-google-id = { group = "com.google.android.libraries.identity.googleid",
 
 # ... FIREBASE ...
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+firebase-cloud-messaging = { group = "com.google.firebase", name = "firebase-messaging" }
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
 firebase-perf = { group = "com.google.firebase", name = "firebase-perf" }
@@ -172,13 +181,16 @@ firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore
 # ... DAGGER-HILT ...
 dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
 dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
+dagger-hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "daggerHilt" }
 androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "daggerHiltExt" }
 androidx-hilt-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "daggerHiltExt" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
 
 # ... BUILD-LOGIC ...
-kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+android-gradleApiPlugin = { group = "com.android.tools.build", name = "gradle-api", version.ref = "androidGradlePlugin" }
+android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 dokka-gradlePlugin = { group = "org.jetbrains.dokka", name = "org.jetbrains.dokka.gradle.plugin", version.ref = "dokka" }
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }

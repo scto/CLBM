@@ -39,8 +39,10 @@ kotlin {
 }
 
 dependencies {
-    compileOnly(libs.kotlin.gradlePlugin)
+    compileOnly(libs.android.gradleApiPlugin)
     compileOnly(libs.android.gradlePlugin)
+    compileOnly(libs.android.tools.common)
+    compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.compose.gradlePlugin)
     compileOnly(libs.ksp.gradlePlugin)
     compileOnly(libs.room.gradlePlugin)
@@ -76,10 +78,6 @@ gradlePlugin {
         register("room") {
             id = "com.scto.clbm.room"
             implementationClass = "RoomConventionPlugin"
-        }
-        register("ksp") {
-            id = "com.scto.clbm.ksp"
-            implementationClass = "KspConventionPlugin"
         }
     }
 }
