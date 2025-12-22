@@ -21,7 +21,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.atick.feature.home"
+    namespace = "com.scto.clbm.feature.home"
 }
 
 dependencies {

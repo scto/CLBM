@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import com.google.devtools.ksp.gradle.KspExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -28,6 +29,12 @@ class DaggerHiltConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("com.google.dagger.hilt.android")
                 apply("com.google.devtools.ksp")
+            }
+            
+            extensions.configure<KspExtension> {
+                arg("room.generateKotlin", "true")
+                // Diese Zeile verhindert, dass Room versucht, die native SQLite-Lib zu laden
+                arg("room.verifySchema", "false")
             }
 
             dependencies {

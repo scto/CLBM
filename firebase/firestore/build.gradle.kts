@@ -22,7 +22,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.atick.firebase.firestore"
+    namespace = "com.scto.clbm.firebase.firestore"
 
     defaultConfig {
         consumerProguardFiles("consumer-rules.pro")

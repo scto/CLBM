@@ -21,7 +21,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.atick.sync"
+    namespace = "com.scto.clbm.sync"
 }
 
 dependencies {

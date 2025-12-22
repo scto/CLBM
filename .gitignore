@@ -7,6 +7,7 @@ local.properties
 
 # Keystore properties file
 keystore.properties
+debug.properties
 
 # Log/OS Files
 *.log
@@ -56,3 +57,5 @@ play-store.json
 .gemini/*
 GEMINI.local.md
 CLAUDE.local.md
+
+.ascide/

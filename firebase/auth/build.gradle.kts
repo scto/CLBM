@@ -22,13 +22,15 @@ plugins {
 }
 
 android {
-    buildFeatures {
-        buildConfig = true
-    }
+    namespace = "com.scto.clbm.firebase.auth"
+    
     defaultConfig {
         consumerProguardFiles("consumer-rules.pro")
     }
-    namespace = "dev.atick.firebase.auth"
+    
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 secrets {

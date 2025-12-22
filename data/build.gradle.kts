@@ -21,7 +21,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.atick.data"
+    namespace = "com.scto.clbm.data"
 }
 
 dependencies {

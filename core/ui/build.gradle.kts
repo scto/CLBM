@@ -20,7 +20,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.atick.core.ui"
+    namespace = "com.scto.clbm.core.ui"
 }
 
 dependencies {

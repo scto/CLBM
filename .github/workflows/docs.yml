@@ -7,7 +7,8 @@ on:
     paths:
       - '**/*'
       - '!**/.github/workflows/**'
-
+  workflow_dispatch:
+  
 jobs:
   mkdocs:
     name: 📖 Generate & Deploy Docs

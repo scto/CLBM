@@ -21,7 +21,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.atick.feature.auth"
+    namespace = "com.scto.clbm.feature.auth"
 }
 
 dependencies {

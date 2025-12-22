@@ -1,0 +1,140 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/core/room/build.gradle.kts",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 916,
+          "line": 30
+        },
+        "start": {
+          "column": 0,
+          "index": 916,
+          "line": 30
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/app/build.gradle.kts",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/firebase/analytics/build.gradle.kts",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/firebase/auth/build.gradle.kts",
+      "selection": {
+        "end": {
+          "column": 5,
+          "index": 961,
+          "line": 32
+        },
+        "start": {
+          "column": 5,
+          "index": 961,
+          "line": 32
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/firebase/firestore/build.gradle.kts",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/firebase/firestore/src/main/kotlin/com/scto/clbm/firebase/firestore/di/DataSourceModule.kt",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 895,
+          "line": 25
+        },
+        "start": {
+          "column": 0,
+          "index": 895,
+          "line": 25
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/secrets.defaults.properties",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/build-logic/convention/src/main/kotlin/DaggerHiltConventionPlugin.kt",
+      "selection": {
+        "end": {
+          "column": 12,
+          "index": 1329,
+          "line": 35
+        },
+        "start": {
+          "column": 12,
+          "index": 1329,
+          "line": 35
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/build-logic/convention/src/main/kotlin/LibraryConventionPlugin.kt",
+      "selection": {
+        "end": {
+          "column": 13,
+          "index": 2071,
+          "line": 52
+        },
+        "start": {
+          "column": 0,
+          "index": 1639,
+          "line": 40
+        }
+      }
+    }
+  ],
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/CLBM/core/room/build.gradle.kts"
+}

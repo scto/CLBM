@@ -21,7 +21,12 @@ plugins {
 }
 
 android {
-    namespace = "dev.atick.core.room"
+    namespace = "com.scto.clbm.core.room"
+}
+
+ksp {
+    // Diese Zeile verhindert, dass Room versucht, die native SQLite-Lib zu laden
+    arg("room.verifySchema", "false")
 }
 
 dependencies {

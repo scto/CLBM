@@ -21,7 +21,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.atick.core.preferences"
+    namespace = "com.scto.clbm.core.preferences"
     defaultConfig {
         consumerProguardFiles("consumer-rules.pro")
     }

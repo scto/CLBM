@@ -1,0 +1,20 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/app/build.gradle.kts",
+      "selection": {
+        "end": {
+          "column": 1,
+          "index": 4546,
+          "line": 142
+        },
+        "start": {
+          "column": 1,
+          "index": 4546,
+          "line": 142
+        }
+      }
+    }
+  ],
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/CLBM/app/build.gradle.kts"
+}

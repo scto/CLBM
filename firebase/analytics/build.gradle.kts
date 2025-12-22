@@ -21,7 +21,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.atick.firebase.analytics"
+    namespace = "com.scto.clbm.firebase.analytics"
 }
 
 dependencies {

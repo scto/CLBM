@@ -23,6 +23,7 @@ import java.time.format.DateTimeFormatter
 import java.util.Properties
 
 val keystorePropertiesFile: File = rootProject.file("keystore.properties")
+val keystoreDebugPropertiesFile: File = rootProject.file("debug.properties")
 
 plugins {
     alias(libs.plugins.jetpack.application)
@@ -32,10 +33,12 @@ plugins {
 }
 
 android {
+    namespace = "com.scto.clbm"
+    
     // ... Application Version ...
     val majorUpdateVersion = 1
-    val minorUpdateVersion = 2
-    val patchVersion = 3
+    val minorUpdateVersion = 0
+    val patchVersion = 0
 
     val mVersionCode = majorUpdateVersion.times(10_000)
         .plus(minorUpdateVersion.times(100))
@@ -46,9 +49,10 @@ android {
     val currentTime = LocalDateTime.now().format(formatter)
 
     defaultConfig {
+        applicationId = "com.scto.clbm"
+        
         versionCode = mVersionCode
         versionName = mVersionName
-        applicationId = "dev.atick.compose"
     }
 
     signingConfigs {
@@ -65,12 +69,18 @@ android {
     }
 
     buildTypes {
-        debug {
+        getByName("debug") {
             isMinifyEnabled = false
+            isCrashingEnabled = false // Veraltet, heißt jetzt:
+            aaptOptions.cruncherEnabled = !isRunningOnAndroidDevice
             signingConfig = signingConfigs.getByName("debug")
         }
-        release {
+
+        getByName("release") {
             isMinifyEnabled = true
+            isCrashingEnabled = false // Veraltet, heißt jetzt:
+            aaptOptions.cruncherEnabled = !isRunningOnAndroidDevice
+            
             applicationVariants.all {
                 outputs.all {
                     (this as BaseVariantOutputImpl).outputFileName =
@@ -81,6 +91,7 @@ android {
                     println(outputFileName)
                 }
             }
+            
             signingConfig = if (keystorePropertiesFile.exists()) {
                 signingConfigs.getByName("release")
             } else {
@@ -89,8 +100,8 @@ android {
                             "https://atick.dev/Jetpack-Android-Starter/github",
                 )
                 signingConfigs.getByName("debug")
-
             }
+            
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
@@ -105,8 +116,6 @@ android {
     androidResources {
         generateLocaleConfig = true
     }
-
-    namespace = "dev.atick.compose"
 }
 
 dependencies {

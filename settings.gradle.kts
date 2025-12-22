@@ -55,7 +55,7 @@ develocity {
     }
 }
 
-rootProject.name = "Jetpack"
+rootProject.name = "CLMB"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 

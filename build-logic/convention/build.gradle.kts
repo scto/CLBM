@@ -23,7 +23,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "dev.atick.build.logic"
+group = "com.scto.clbm.build.logic"
 
 val javaVersion = libs.versions.java.get().toInt()
 
@@ -48,27 +48,27 @@ dependencies {
 gradlePlugin {
     plugins {
         register("library") {
-            id = "dev.atick.library"
+            id = "com.scto.clbm.library"
             implementationClass = "LibraryConventionPlugin"
         }
         register("uiLibrary") {
-            id = "dev.atick.ui.library"
+            id = "com.scto.clbm.ui.library"
             implementationClass = "UiLibraryConventionPlugin"
         }
         register("application") {
-            id = "dev.atick.application"
+            id = "com.scto.clbm.application"
             implementationClass = "ApplicationConventionPlugin"
         }
         register("daggerHilt") {
-            id = "dev.atick.dagger.hilt"
+            id = "com.scto.clbm.dagger.hilt"
             implementationClass = "DaggerHiltConventionPlugin"
         }
         register("firebase") {
-            id = "dev.atick.firebase"
+            id = "com.scto.clbm.firebase"
             implementationClass = "FirebaseConventionPlugin"
         }
         register("dokka") {
-            id = "dev.atick.dokka"
+            id = "com.scto.clbm.dokka"
             implementationClass = "DokkaConventionPlugin"
         }
     }
