@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Atick Faisal
+ * Copyright 2024 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,19 +38,39 @@ class LibraryConventionPlugin : Plugin<Project> {
                 apply("kotlinx-serialization")
             }
 
-            extensions.configure<LibraryExtension> {
-
+            // Android-spezifische Optimierungen
+            extensions.configure<com.android.build.gradle.LibraryExtension> {
+            
                 compileSdk = compileSdkVersion
-
-                defaultConfig {
-                    minSdk = minSdkVersion
+                
+                if (isRunningOnAndroidDevice) {
+                    // Nutzt das API-Level deines Handys für schnellere Builds (Dexing)
+                    defaultConfig.minSdk = deviceApiLevel
+                    
+                    // Ressourcen-Dichte einschränken (Beispiel für typische Handys)
+                    defaultConfig.resConfigs("de", "xxhdpi")
+                    
+                    // PNG-Kompression aus
+                    aaptOptions.cruncherEnabled = false
+                    
+                    println("Mobile-Build: API $deviceApiLevel erkannt, Performance-Fixes aktiv.")
+                } else {
+                     defaultConfig.minSdk = minSdkVersion
                 }
-
+                
                 compileOptions {
                     sourceCompatibility = JavaVersion.valueOf("VERSION_$javaVersion")
                     targetCompatibility = JavaVersion.valueOf("VERSION_$javaVersion")
                 }
+
+                packaging {
+                    resources {
+                        excludes += "/META-INF/{AL2.0,LGPL2.1}"
+                    }
+                }
             }
+
+            configureCommonPerformance()
 
             extensions.configure<KotlinAndroidProjectExtension> {
                 compilerOptions {

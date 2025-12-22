@@ -74,6 +74,10 @@ android {
             isCrashingEnabled = false // Veraltet, heißt jetzt:
             aaptOptions.cruncherEnabled = !isRunningOnAndroidDevice
             signingConfig = signingConfigs.getByName("debug")
+            // Verhindert das Generieren von unnötigen Build-Infos
+            extra["enableCrashlytics"] = false
+            extra["alwaysUpdateBuildId"] = false
+        }
         }
 
         getByName("release") {
