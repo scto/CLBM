@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Atick Faisal
+ * Copyright 2024 Thomas Schmidl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
 
-class AndroidRoomConventionPlugin : Plugin<Project> {
+class RoomConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
