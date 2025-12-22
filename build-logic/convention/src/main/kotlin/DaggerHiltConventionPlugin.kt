@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Atick Faisal
+ * Copyright 2024 Thomas Schmidl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,9 +32,17 @@ class DaggerHiltConventionPlugin : Plugin<Project> {
             }
             
             extensions.configure<KspExtension> {
-                arg("room.generateKotlin", "true")
-                // Diese Zeile verhindert, dass Room versucht, die native SQLite-Lib zu laden
-                arg("room.verifySchema", "false")
+                if (isRunningOnAndroidDevice) {
+                    // Optimierungen für Mobile
+                    arg("room.verifySchema", "false")
+                    arg("room.generateKotlin", "false") // Java-Generierung ist oft "leichter" für mobile CPUs
+                    println("Room: Mobile-Optimierung aktiv (Schema-Check aus, Java-Gen an)")
+                } else {
+                    // Volle Power für den PC
+                    arg("room.verifySchema", "true")
+                    arg("room.generateKotlin", "true") 
+                    println("Room: Desktop-Konfiguration aktiv (Vollständige Prüfung)")
+                }
             }
 
             dependencies {
