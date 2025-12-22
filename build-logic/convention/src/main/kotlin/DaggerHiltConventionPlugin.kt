@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import com.google.devtools.ksp.gradle.KspExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -31,20 +30,6 @@ class DaggerHiltConventionPlugin : Plugin<Project> {
                 apply("com.google.devtools.ksp")
             }
             
-            extensions.configure<KspExtension> {
-                if (isRunningOnAndroidDevice) {
-                    // Optimierungen für Mobile
-                    arg("room.verifySchema", "false")
-                    arg("room.generateKotlin", "false") // Java-Generierung ist oft "leichter" für mobile CPUs
-                    println("Room: Mobile-Optimierung aktiv (Schema-Check aus, Java-Gen an)")
-                } else {
-                    // Volle Power für den PC
-                    arg("room.verifySchema", "true")
-                    arg("room.generateKotlin", "true") 
-                    println("Room: Desktop-Konfiguration aktiv (Vollständige Prüfung)")
-                }
-            }
-
             dependencies {
                 "implementation"(libs.findLibrary("dagger.hilt.android").get())
                 "ksp"(libs.findLibrary("dagger.hilt.compiler").get())
