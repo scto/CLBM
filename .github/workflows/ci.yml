@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout Repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: ✅ Validate Gradle Wrapper
         uses: gradle/actions/wrapper-validation@v5
@@ -43,7 +43,7 @@ jobs:
     timeout-minutes: 45
     steps:
       - name: ⬇️ Checkout Repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: 📜 Copy CI gradle.properties
         run: mkdir -p ~/.gradle && cp .github/ci-gradle.properties ~/.gradle/gradle.properties
