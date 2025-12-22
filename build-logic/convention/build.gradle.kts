@@ -28,12 +28,8 @@ group = "com.scto.clbm.build.logic"
 val javaVersion = libs.versions.java.get().toInt()
 
 java {
-/*
-    sourceCompatibility = JavaVersion.values()[javaVersion - 1]
-    targetCompatibility = JavaVersion.values()[javaVersion - 1]
-*/
-    sourceCompatibility = JavaVersion
-    targetCompatibility = JavaVersion
+    sourceCompatibility = JavaVersion.values()[javaVersion]
+    targetCompatibility = JavaVersion.values()[javaVersion]
 }
 
 kotlin {
