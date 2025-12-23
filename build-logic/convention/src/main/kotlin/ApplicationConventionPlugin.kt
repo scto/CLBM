@@ -34,6 +34,8 @@ class ApplicationConventionPlugin : Plugin<Project> {
             val minSdkVersion = libs.findVersion("minSdk").get().toString().toInt()
             val targetSdkVersion = libs.findVersion("targetSdk").get().toString().toInt()
             val compileSdkVersion = libs.findVersion("compileSdk").get().toString().toInt()
+            
+            apply(plugin = "jetpack.android.lint")
 
             with(pluginManager) {
                 apply("com.android.application")

@@ -44,6 +44,8 @@ dependencies {
     compileOnly(libs.android.tools.common)
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.compose.gradlePlugin)
+    compileOnly(libs.firebase.crashlytics.gradlePlugin)
+    compileOnly(libs.firebase.performance.gradlePlugin)
     compileOnly(libs.ksp.gradlePlugin)
     compileOnly(libs.room.gradlePlugin)
     compileOnly(libs.dokka.gradlePlugin)
@@ -51,6 +53,10 @@ dependencies {
 
 gradlePlugin {
     plugins {
+        register("application") {
+            id = "com.scto.clbm.application"
+            implementationClass = "ApplicationConventionPlugin"
+        }
         register("library") {
             id = "com.scto.clbm.library"
             implementationClass = "LibraryConventionPlugin"
@@ -59,9 +65,9 @@ gradlePlugin {
             id = "com.scto.clbm.ui.library"
             implementationClass = "UiLibraryConventionPlugin"
         }
-        register("application") {
-            id = "com.scto.clbm.application"
-            implementationClass = "ApplicationConventionPlugin"
+        register("androidLint") {
+            id = "com.scto.clbm.android.lint"
+            implementationClass = "AndroidLintConventionPlugin"
         }
         register("daggerHilt") {
             id = "com.scto.clbm.dagger.hilt"
