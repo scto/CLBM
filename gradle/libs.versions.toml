@@ -3,7 +3,7 @@
 accompanist = "0.37.0"
 androidDesugarJdkLibs = "2.1.4"
 
-androidGradlePlugin = "8.11.1"
+androidGradlePlugin = "8.13.2"
 androidTools = "31.13.1"
 
 kotlin = "2.2.21"
