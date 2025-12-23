@@ -19,69 +19,66 @@ import com.android.build.api.dsl.LibraryExtension
 import com.android.build.api.dsl.Lint
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
 
 class AndroidLintConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
+            // Wir prüfen, welches Plugin aktiv ist und konfigurieren Lint entsprechend
             when {
                 pluginManager.hasPlugin("com.android.application") ->
-                    configure<ApplicationExtension> { lint(Lint::configure) }
+                    extensions.configure<ApplicationExtension> {
+                        lint.configureLint(target)
+                    }
 
                 pluginManager.hasPlugin("com.android.library") ->
-                    configure<LibraryExtension> { lint(Lint::configure) }
+                    extensions.configure<LibraryExtension> {
+                        lint.configureLint(target)
+                    }
 
                 else -> {
-                    apply(plugin = "com.android.lint")
-                    configure<Lint>(Lint::configure)
+                    // Falls es ein reines Kotlin-Modul ohne Android-Plugin ist
+                    pluginManager.apply("com.android.lint")
+                    extensions.configure<Lint> {
+                        configureLint(target)
+                    }
                 }
             }
         }
     }
 }
 
-private fun Lint.configure() {
-    // Schreibt einen XML-Bericht (gut für CI/CD Tools oder Parser im IDE)
+/**
+ * Extension Function, die das Project-Objekt mitnimmt, 
+ * um auf Pfade und Utilities zuzugreifen.
+ */
+private fun Lint.configureLint(project: Project) {
+    // Berichte in das zentrale Build-Verzeichnis schreiben
+    val reportDir = project.rootProject.layout.buildDirectory.dir("reports/lint")
+
     xmlReport = true
-    xmlOutput = file("${project.rootDir}/build/reports/lint/lint-report.xml")
+    xmlOutput = project.file("${reportDir.get()}/lint-report.xml")
 
-    // Schreibt einen HTML-Bericht (gut für Menschen lesbar)
     htmlReport = true
-    htmlOutput = file("${project.rootDir}/build/reports/lint/lint-report.html")
+    htmlOutput = project.file("${reportDir.get()}/lint-report.html")
         
-    // Schreibt einen einfachen Text-Bericht
     textReport = true
-    // Ausgabe in Konsole
-    // textOutput = file("stdout")
-    // Ausgabe in Datei
-    textOutput = file("${project.rootDir}/build/reports/lint/lint-report.txt")
+    textOutput = project.file("${reportDir.get()}/lint-report.txt")
 
-    // Schreibt einen SARIF-Bericht (gut für Menschen lesbar)    
     sarifReport = true
-    sarifOutput = file("${project.rootDir}/build/reports/lint/lint-report.sarif")
+    sarifOutput = project.file("${reportDir.get()}/lint-report.sarif")
     
-    // Wenn true, bricht der Build bei Fehlern ab
     abortOnError = false
-
-    // Wenn true, werden Warnungen als Fehler behandelt
     warningsAsErrors = false
 
-    // Prüft auch alle Abhängigkeiten (kann den Build verlangsamen)
-    checkDependencies = true
+    // PERFORMANCE: Wir nutzen dein isRunningOnAndroidDevice aus Utilities.kt
+    // Auf dem Handy schalten wir die Tiefenprüfung der Abhängigkeiten aus.
+    checkDependencies = !project.isRunningOnAndroidDevice
         
-    // Führt Lint checks auch bei Release Builds aus
     checkReleaseBuilds = false
         
-    // --- Konfigurationsdatei einbinden ---
-    // Hier verweisen wir auf die lint.xml, die wir oben erstellt haben
-    lintConfig = file("${project.rootDir}/lint.xml")
-
-    // --- Baseline (Snapshot) ---
-    // Wenn eine Datei hier angegeben ist, werden alle existierenden 
-    // Warnungen darin gespeichert und ignoriert. Nur NEUE Warnungen werden gemeldet.
-    // Nützlich für Legacy-Code.
-    // baseline = file("lint-baseline.xml")
+    // Pfad zur lint.xml im Root-Verzeichnis
+    lintConfig = project.file("${project.rootDir}/lint.xml")
         
     disable += "GradleDependency"
 }

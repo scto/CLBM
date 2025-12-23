@@ -14,15 +14,17 @@
  * limitations under the License.
  */
  
-import org.gradle.api.Project
+import com.android.build.api.dsl.CommonExtension
 import com.google.devtools.ksp.gradle.KspExtension
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.api.JavaVersion
+import org.gradle.api.Project
+import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.api.tasks.compile.JavaCompile
-import com.android.build.api.variant.AndroidComponentsExtension
+import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.getByType
+import org.gradle.kotlin.dsl.withType
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-/**
- * Erkennt, ob der Build auf einem Android-Gerät (RV2IDE, Termux) läuft.
- */
 val Project.isRunningOnAndroidDevice: Boolean
     get() {
         val osName = System.getProperty("os.name")?.lowercase() ?: ""
@@ -30,53 +32,88 @@ val Project.isRunningOnAndroidDevice: Boolean
         return osName.contains("android") || osArch.contains("aarch64")
     }
 
-/**
- * Holt die Android API Version des Handys, auf dem gerade gebuildet wird.
- * Standardmäßig 24 (Android 7), falls nicht erkennbar.
- */
 val Project.deviceApiLevel: Int
-    get() = if (isRunningOnAndroidDevice) {
-        // Unter Android liefert diese Property die API Version (z.B. "33")
-        System.getProperty("ro.build.version.sdk")?.toIntOrNull() 
-            ?: android.os.Build.VERSION.SDK_INT // Alternativer Zugriff
-    } else {
-        24 // Default für PC/CI
-    }
+    get() = System.getProperty("ro.build.version.sdk")?.toIntOrNull() ?: 24
 
-/**
- * Zentrale Konfiguration für Room & KSP Performance
- */
-fun Project.configureRoomKsp() {
-    extensions.configure<KspExtension>("ksp") {
-        if (isRunningOnAndroidDevice) {
-            arg("room.verifySchema", "false") // Verhindert SQLite Native Error
-            arg("room.generateKotlin", "false") // Java-Gen ist schneller auf Mobile
-        } else {
-            arg("room.verifySchema", "true")
-            arg("room.generateKotlin", "true")
-        }
-    }
-}
-
-/**
- * Optimiert die Compiler-Performance für mobile CPUs
- */
 fun Project.configureCommonPerformance() {
     val isMobile = isRunningOnAndroidDevice
 
-    // Kotlin-Compiler Threads begrenzen
+    // Migration von kotlinOptions zu compilerOptions
     tasks.withType<KotlinCompile>().configureEach {
-        kotlinOptions {
+        compilerOptions {
             if (isMobile) {
-                freeCompilerArgs = freeCompilerArgs + listOf("-Xbackend-threads=2")
+                // In der neuen API ist freeCompilerArgs eine Property vom Typ ListProperty
+                // Wir fügen die Werte hinzu
+                freeCompilerArgs.add("-Xbackend-threads=2")
             }
         }
     }
 
-    // Java-Compiler Speicher begrenzen
     tasks.withType<JavaCompile>().configureEach {
         if (isMobile) {
             options.forkOptions.memoryMaximumSize = "512m"
+        }
+    }
+}
+
+fun Project.configureKotlinAndroid(commonExtension: CommonExtension<*, *, *, *, *, *>) {
+    val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+    
+    val javaVersionStr = libs.findVersion("java").get().toString()
+    val minSdkStr = libs.findVersion("minSdk").get().toString()
+    val compileSdkStr = libs.findVersion("compileSdk").get().toString()
+
+    commonExtension.apply {
+        compileSdk = compileSdkStr.toInt()
+
+        defaultConfig {
+            minSdk = minSdkStr.toInt()
+            
+            if (isRunningOnAndroidDevice) {
+                minSdk = deviceApiLevel
+                resConfigs("de", "xxhdpi")
+                println("Mobile-Build erkannt: API $deviceApiLevel Optimierungen aktiv.")
+            }
+        }
+
+        compileOptions {
+            val version = if (javaVersionStr.contains("VERSION_")) javaVersionStr else "VERSION_$javaVersionStr"
+            sourceCompatibility = JavaVersion.valueOf(version)
+            targetCompatibility = JavaVersion.valueOf(version)
+        }
+        
+        // Fix für 'cruncherEnabled' Fehlermeldung
+        // In neueren Versionen greift man über androidResources darauf zu
+        androidResources {
+            if (isRunningOnAndroidDevice) {
+                @Suppress("DEPRECATION")
+                (this as? com.android.build.api.dsl.AndroidResources)?.let {
+                    // Falls die IDE das Interface noch alt auflöst:
+                }
+                // Direkter Weg für neuere AGP Versionen:
+                //@Suppress("DEPRECATION")
+                //commonExtension.aaptOptions.cruncherEnabled = false
+            }
+        }
+    }
+}
+
+// In deiner build-logic/convention/src/main/kotlin/Utilities.kt
+fun Project.configureRoomKsp() {
+    extensions.configure<KspExtension> {
+        // Wir prüfen OS und Pfad
+        val isAndroidHost = System.getProperty("os.name").lowercase().contains("android")
+        
+        if (isAndroidHost) {
+            // Dies ist der wichtigste Schalter für mobile IDEs!
+            arg("room.verifySchema", "false")
+            // Java-Generierung ist auf Handys oft stabiler als Kotlin-Gen
+            arg("room.generateKotlin", "false")
+            arg("room.incremental", "false") // Nur zum Testen, ob der Fehler dann verschwindet
+            println("Room: Mobile-Optimierung aktiv.")
+        } else {
+            arg("room.verifySchema", "true")
+            arg("room.generateKotlin", "true")
         }
     }
 }

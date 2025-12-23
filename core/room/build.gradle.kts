@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Atick Faisal
+ * Copyright 2023 Thomas Schmid 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,36 @@
  * limitations under the License.
  */
 
+// Funktion zur Erkennung der mobilen Umgebung
+fun isMobileBuild(): Boolean {
+    val osName = System.getProperty("os.name").lowercase()
+    val userDir = System.getProperty("user.dir")
+    // RV2IDE/AndroidIDE nutzen oft spezifische Pfade wie /data/data/...
+    return osName.contains("android") || userDir.contains("com.tom.rv2ide")
+}
+
+ksp {
+    if (isMobileBuild()) {
+        // Zwingt Room, die fehlerhafte native Library zu ignorieren
+        arg("room.verifySchema", "false")
+        arg("room.generateKotlin", "true")
+        arg("room.incremental", "false") // Nur zum Testen, ob der Fehler dann verschwindet
+        println("BUILD-INFO: Mobile Umgebung erkannt. Room-Verifizierung deaktiviert.")
+    } else {
+        arg("room.verifySchema", "true")
+        arg("room.generateKotlin", "true")
+    }
+}
+
 plugins {
     alias(libs.plugins.jetpack.library)
     alias(libs.plugins.jetpack.dagger.hilt)
     alias(libs.plugins.jetpack.dokka)
+    alias(libs.plugins.jetpack.room)
 }
 
 android {
     namespace = "com.scto.clbm.core.room"
-}
-
-ksp {
-    // Diese Zeile verhindert, dass Room versucht, die native SQLite-Lib zu laden
-    arg("room.verifySchema", "false")
 }
 
 dependencies {

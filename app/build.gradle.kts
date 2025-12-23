@@ -71,18 +71,17 @@ android {
     buildTypes {
         getByName("debug") {
             isMinifyEnabled = false
-            isCrashingEnabled = false // Veraltet, heißt jetzt:
+            //isCrashingEnabled = false // Veraltet, heißt jetzt:
             aaptOptions.cruncherEnabled = !isRunningOnAndroidDevice
             signingConfig = signingConfigs.getByName("debug")
             // Verhindert das Generieren von unnötigen Build-Infos
             extra["enableCrashlytics"] = false
             extra["alwaysUpdateBuildId"] = false
         }
-        }
 
         getByName("release") {
             isMinifyEnabled = true
-            isCrashingEnabled = false // Veraltet, heißt jetzt:
+            //isCrashingEnabled = false // Veraltet, heißt jetzt:
             aaptOptions.cruncherEnabled = !isRunningOnAndroidDevice
             
             applicationVariants.all {
@@ -111,6 +110,10 @@ android {
                 "proguard-rules.pro",
             )
         }
+    }
+    
+    compileOptions {
+        isCoreLibraryDesugaringEnabled = true
     }
 
     buildFeatures {
@@ -146,6 +149,8 @@ dependencies {
     // ... OSS Licenses
     implementation(libs.google.oss.licenses)
 
+    coreLibraryDesugaring(libs.android.desugarJdkLibs)
+    
     // ... LeakCanary
     // TODO: Comment out the following line to disable LeakCanary
     debugImplementation(libs.leakcanary.android)

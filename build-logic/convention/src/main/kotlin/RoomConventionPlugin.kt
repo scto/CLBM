@@ -27,38 +27,47 @@ class RoomConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
-
-            with(pluginManager) {
-                apply("androidx.room"
-                apply("com.google.devtools.ksp")
-            }
             
-            extensions.configure<KspExtension> {
-                if (isRunningOnAndroidDevice) {
-                    // Optimierungen für Mobile
-                    arg("room.verifySchema", "false")
-                    arg("room.generateKotlin", "false") // Java-Generierung ist oft "leichter" für mobile CPUs
-                    println("Room: Mobile-Optimierung aktiv (Schema-Check aus, Java-Gen an)")
-                } else {
-                    // Volle Power für den PC
-                    arg("room.verifySchema", "true")
-                    arg("room.generateKotlin", "true") 
-                    println("Room: Desktop-Konfiguration aktiv (Vollständige Prüfung)")
-                }
-            }
-
-            extensions.configure<RoomExtension> {
-                // The schemas directory contains a schema file for each version of the Room database.
-                // This is required to enable Room auto migrations.
-                // See https://developer.android.com/reference/kotlin/androidx/room/AutoMigration.
-                schemaDirectory("$projectDir/schemas")
-            }
-
+            // Plugins anwenden (KSP, Room)
+            pluginManager.apply("com.google.devtools.ksp")
+            //pluginManager.apply("androidx.room")
+            
+            /*
             dependencies {
                 "implementation"(libs.findLibrary("room.runtime").get())
                 "implementation"(libs.findLibrary("room.ktx").get())
                 "ksp"(libs.findLibrary("room.compiler").get())
             }
+            */
+            
+            // Unsere neue Logik nutzen
+            configureRoomKsp()
         }
     }
 }
+
+/*
+// build-logic/convention/src/main/kotlin/AndroidRoomConventionPlugin.kt
+import com.google.devtools.ksp.gradle.KspExtension
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.kotlin.dsl.configure
+
+class AndroidRoomConventionPlugin : Plugin<Project> {
+    override fun apply(target: Project) {
+        with(target) {
+            pluginManager.apply("com.google.devtools.ksp")
+
+            extensions.configure<KspExtension> {
+                if (isRunningOnAndroidDevice) {
+                    arg("room.verifySchema", "false")
+                    arg("room.generateKotlin", "false")
+                } else {
+                    arg("room.verifySchema", "true")
+                    arg("room.generateKotlin", "true")
+                }
+            }
+        }
+    }
+}
+*/

@@ -1,20 +1,20 @@
 {
   "allFiles": [
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/app/build.gradle.kts",
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/build-logic/convention/src/main/kotlin/AndroidLintConventionPlugin.kt",
       "selection": {
         "end": {
-          "column": 1,
-          "index": 4546,
-          "line": 142
+          "column": 0,
+          "index": 0,
+          "line": 0
         },
         "start": {
-          "column": 1,
-          "index": 4546,
-          "line": 142
+          "column": 0,
+          "index": 0,
+          "line": 0
         }
       }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/CLBM/app/build.gradle.kts"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/CLBM/build-logic/convention/src/main/kotlin/AndroidLintConventionPlugin.kt"
 }

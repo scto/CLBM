@@ -4,19 +4,19 @@
       "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/core/room/build.gradle.kts",
       "selection": {
         "end": {
-          "column": 0,
-          "index": 916,
-          "line": 30
+          "column": 4,
+          "index": 1547,
+          "line": 41
         },
         "start": {
-          "column": 0,
-          "index": 916,
-          "line": 30
+          "column": 4,
+          "index": 1547,
+          "line": 41
         }
       }
     },
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/app/build.gradle.kts",
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/core/android/build.gradle.kts",
       "selection": {
         "end": {
           "column": 0,
@@ -31,7 +31,7 @@
       }
     },
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/firebase/analytics/build.gradle.kts",
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/data/build.gradle.kts",
       "selection": {
         "end": {
           "column": 0,
@@ -42,21 +42,6 @@
           "column": 0,
           "index": 0,
           "line": 0
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/firebase/auth/build.gradle.kts",
-      "selection": {
-        "end": {
-          "column": 5,
-          "index": 961,
-          "line": 32
-        },
-        "start": {
-          "column": 5,
-          "index": 961,
-          "line": 32
         }
       }
     },
@@ -76,22 +61,7 @@
       }
     },
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/firebase/firestore/src/main/kotlin/com/scto/clbm/firebase/firestore/di/DataSourceModule.kt",
-      "selection": {
-        "end": {
-          "column": 0,
-          "index": 895,
-          "line": 25
-        },
-        "start": {
-          "column": 0,
-          "index": 895,
-          "line": 25
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/secrets.defaults.properties",
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/build-logic/convention/src/main/kotlin/Utilities.kt",
       "selection": {
         "end": {
           "column": 0,
@@ -106,35 +76,20 @@
       }
     },
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/build-logic/convention/src/main/kotlin/DaggerHiltConventionPlugin.kt",
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/build-logic/convention/src/main/kotlin/RoomConventionPlugin.kt",
       "selection": {
         "end": {
-          "column": 12,
-          "index": 1329,
-          "line": 35
-        },
-        "start": {
-          "column": 12,
-          "index": 1329,
-          "line": 35
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/build-logic/convention/src/main/kotlin/LibraryConventionPlugin.kt",
-      "selection": {
-        "end": {
-          "column": 13,
-          "index": 2071,
-          "line": 52
+          "column": 0,
+          "index": 0,
+          "line": 0
         },
         "start": {
           "column": 0,
-          "index": 1639,
-          "line": 40
+          "index": 0,
+          "line": 0
         }
       }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/CLBM/core/room/build.gradle.kts"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/CLBM/build-logic/convention/src/main/kotlin/RoomConventionPlugin.kt"
 }
