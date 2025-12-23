@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Atick Faisal
+ * Copyright 2024 Thomas Schmidl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ class DokkaConventionPlugin : Plugin<Project> {
                     suppressGeneratedFiles.set(true)
                 }
                 pluginsConfiguration.withType<DokkaHtmlPluginParameters> {
-                    footerMessage.set("Made with ❤\uFE0F by Atick Faisal")
+                    footerMessage.set("Made with ❤\uFE0F by Thomas Schmidl")
                 }
             }
 

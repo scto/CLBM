@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Atick Faisal
+ * Copyright 2023 Thomas Schmidl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -118,7 +118,7 @@ private fun ProfileScreen(
 private fun ProfileScreenPreview() {
     ProfileScreen(
         profile = Profile(
-            userName = "Atick Faisal",
+            userName = "Thomas Schmidl",
             profilePictureUri = "https://example.com/avatar.png",
         ),
         onSignOutClick = {},

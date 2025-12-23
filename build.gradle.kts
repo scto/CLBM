@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Atick Faisal
+ * Copyright 2023 Thomas Schmidl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -66,6 +66,6 @@ dokka {
     pluginsConfiguration.html {
         customAssets.from("docs/assets/logo-icon.svg")
         customStyleSheets.from("docs/assets/dokka.css")
-        footerMessage.set("Made with ❤\uFE0F by Atick Faisal")
+        footerMessage.set("Made with ❤\uFE0F by Thomas Schmidl")
     }
 }

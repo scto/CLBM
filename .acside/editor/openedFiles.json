@@ -1,17 +1,17 @@
 {
   "allFiles": [
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/core/room/build.gradle.kts",
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/app/build.gradle.kts",
       "selection": {
         "end": {
-          "column": 4,
-          "index": 1547,
-          "line": 41
+          "column": 0,
+          "index": 0,
+          "line": 0
         },
         "start": {
-          "column": 4,
-          "index": 1547,
-          "line": 41
+          "column": 0,
+          "index": 0,
+          "line": 0
         }
       }
     },
@@ -31,52 +31,7 @@
       }
     },
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/data/build.gradle.kts",
-      "selection": {
-        "end": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        },
-        "start": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/firebase/firestore/build.gradle.kts",
-      "selection": {
-        "end": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        },
-        "start": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/build-logic/convention/src/main/kotlin/Utilities.kt",
-      "selection": {
-        "end": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        },
-        "start": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/build-logic/convention/src/main/kotlin/RoomConventionPlugin.kt",
+      "file": "/storage/emulated/0/AndroidIDEProjects/CLBM/core/android/README.md",
       "selection": {
         "end": {
           "column": 0,
@@ -91,5 +46,5 @@
       }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/CLBM/build-logic/convention/src/main/kotlin/RoomConventionPlugin.kt"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/CLBM/core/android/README.md"
 }
