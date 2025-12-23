@@ -23,7 +23,6 @@ import java.time.format.DateTimeFormatter
 import java.util.Properties
 
 val keystorePropertiesFile: File = rootProject.file("keystore.properties")
-val keystoreDebugPropertiesFile: File = rootProject.file("debug.properties")
 
 plugins {
     alias(libs.plugins.jetpack.application)
