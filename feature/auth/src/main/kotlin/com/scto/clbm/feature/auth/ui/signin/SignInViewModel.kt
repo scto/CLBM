@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Thomas Schmidl
+ * Copyright 2025 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ package com.scto.clbm.feature.auth.ui.signin
 import android.app.Activity
 import androidx.compose.runtime.Immutable
 import androidx.lifecycle.ViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
 import com.scto.clbm.core.extensions.isEmailValid
 import com.scto.clbm.core.extensions.isPasswordValid
 import com.scto.clbm.core.ui.utils.TextFiledData
@@ -27,6 +26,7 @@ import com.scto.clbm.core.ui.utils.UiState
 import com.scto.clbm.core.ui.utils.updateState
 import com.scto.clbm.core.ui.utils.updateWith
 import com.scto.clbm.data.repository.auth.AuthRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject

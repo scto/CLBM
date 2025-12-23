@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Thomas Schmidl
+ * Copyright 2023 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,10 +18,8 @@ package com.scto.clbm.core.preferences.utils
 
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer
-
 import com.scto.clbm.core.preferences.model.DarkThemeConfigPreferences
 import com.scto.clbm.core.preferences.model.UserDataPreferences
-
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.KSerializer
@@ -32,7 +30,6 @@ import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.json.Json
-
 import java.io.InputStream
 import java.io.OutputStream
 

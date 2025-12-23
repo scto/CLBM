@@ -17,14 +17,10 @@
 package com.scto.clbm
 
 import android.app.Application
-
 import coil.ImageLoader
 import coil.ImageLoaderFactory
-
 import dagger.hilt.android.HiltAndroidApp
-
 import timber.log.Timber
-
 import javax.inject.Inject
 
 /**

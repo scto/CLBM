@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Thomas Schmidl
+ * Copyright 2023 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,12 +18,12 @@ package com.scto.clbm.core.room.di
 
 import android.content.Context
 import androidx.room.Room
+import com.scto.clbm.core.room.data.JetpackDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import com.scto.clbm.core.room.data.JetpackDatabase
 import javax.inject.Singleton
 
 /**

@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Thomas Schmidl
+ * Copyright 2025 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ import android.content.Context
 import androidx.work.WorkInfo
 import androidx.work.WorkInfo.State
 import androidx.work.WorkManager
-import dagger.hilt.android.qualifiers.ApplicationContext
 import com.scto.clbm.data.utils.SyncManager
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.flow.map

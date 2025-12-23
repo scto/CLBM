@@ -19,7 +19,6 @@ package com.scto.clbm
 import android.Manifest
 import android.os.Build
 import android.os.Bundle
-
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -35,11 +34,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-
-import dagger.hilt.android.AndroidEntryPoint
-
-import com.scto.clbm.ui.JetpackApp
-import com.scto.clbm.ui.rememberJetpackAppState
 import com.scto.clbm.core.network.utils.NetworkUtils
 import com.scto.clbm.core.preferences.model.DarkThemeConfigPreferences
 import com.scto.clbm.core.preferences.model.UserDataPreferences
@@ -48,13 +42,14 @@ import com.scto.clbm.core.ui.extensions.isSystemInDarkTheme
 import com.scto.clbm.core.ui.theme.JetpackTheme
 import com.scto.clbm.core.ui.utils.UiState
 import com.scto.clbm.firebase.analytics.utils.CrashReporter
-
+import com.scto.clbm.ui.JetpackApp
+import com.scto.clbm.ui.rememberJetpackAppState
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-
 import javax.inject.Inject
 
 /**

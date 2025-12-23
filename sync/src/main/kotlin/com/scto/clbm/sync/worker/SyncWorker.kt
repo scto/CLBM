@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Thomas Schmidl
+ * Copyright 2025 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,11 +26,11 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.OutOfQuotaPolicy
 import androidx.work.WorkerParameters
-import dagger.assisted.Assisted
-import dagger.assisted.AssistedInject
 import com.scto.clbm.core.di.IoDispatcher
 import com.scto.clbm.data.repository.home.HomeRepository
 import com.scto.clbm.sync.extensions.syncForegroundInfo
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedInject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext

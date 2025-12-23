@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Thomas Schmidl
+ * Copyright 2025 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,12 +16,12 @@
 
 package com.scto.clbm.sync.di
 
+import com.scto.clbm.data.utils.SyncManager
+import com.scto.clbm.sync.manager.SyncManagerImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import com.scto.clbm.data.utils.SyncManager
-import com.scto.clbm.sync.manager.SyncManagerImpl
 import javax.inject.Singleton
 
 /**

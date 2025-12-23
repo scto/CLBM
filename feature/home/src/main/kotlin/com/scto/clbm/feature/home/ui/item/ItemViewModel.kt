@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Thomas Schmidl
+ * Copyright 2025 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
-import dagger.hilt.android.lifecycle.HiltViewModel
 import com.scto.clbm.core.extensions.asOneTimeEvent
 import com.scto.clbm.core.extensions.stateInDelayed
 import com.scto.clbm.core.ui.utils.UiState
@@ -31,6 +30,7 @@ import com.scto.clbm.core.utils.OneTimeEvent
 import com.scto.clbm.data.model.home.Jetpack
 import com.scto.clbm.data.repository.home.HomeRepository
 import com.scto.clbm.feature.home.navigation.Item
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn

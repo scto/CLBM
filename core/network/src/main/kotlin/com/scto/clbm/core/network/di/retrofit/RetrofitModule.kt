@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Thomas Schmidl
+ * Copyright 2023 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,12 +16,12 @@
 
 package com.scto.clbm.core.network.di.retrofit
 
+import com.scto.clbm.core.network.BuildConfig
+import com.scto.clbm.core.network.di.okhttp.OkHttpClientModule
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import com.scto.clbm.core.network.BuildConfig
-import com.scto.clbm.core.network.di.okhttp.OkHttpClientModule
 import okhttp3.OkHttpClient
 import retrofit2.Converter
 import retrofit2.Retrofit

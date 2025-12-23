@@ -57,10 +57,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
-
 import com.scto.clbm.R
-import com.scto.clbm.navigation.JetpackNavHost
-import com.scto.clbm.navigation.TopLevelDestination
 import com.scto.clbm.core.ui.components.AppBackground
 import com.scto.clbm.core.ui.components.AppGradientBackground
 import com.scto.clbm.core.ui.components.JetpackExtendedFab
@@ -71,6 +68,8 @@ import com.scto.clbm.core.ui.theme.GradientColors
 import com.scto.clbm.core.ui.theme.LocalGradientColors
 import com.scto.clbm.core.ui.utils.SnackbarAction
 import com.scto.clbm.feature.settings.ui.SettingsDialog
+import com.scto.clbm.navigation.JetpackNavHost
+import com.scto.clbm.navigation.TopLevelDestination
 
 /**
  * Composable function that represents the Jetpack Compose application.

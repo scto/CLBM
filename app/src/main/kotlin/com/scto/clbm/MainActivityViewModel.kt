@@ -18,19 +18,15 @@ package com.scto.clbm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-
-import dagger.hilt.android.lifecycle.HiltViewModel
-
 import com.scto.clbm.core.extensions.asOneTimeEvent
 import com.scto.clbm.core.extensions.stateInDelayed
 import com.scto.clbm.core.preferences.data.UserPreferencesDataSource
 import com.scto.clbm.core.preferences.model.UserDataPreferences
 import com.scto.clbm.core.ui.utils.UiState
-
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
-
 import javax.inject.Inject
 
 /**

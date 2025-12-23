@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Thomas Schmidl
+ * Copyright 2023 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,21 +20,17 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory
 import androidx.datastore.dataStoreFile
-
+import com.scto.clbm.core.di.IoDispatcher
+import com.scto.clbm.core.preferences.model.UserDataPreferences
+import com.scto.clbm.core.preferences.utils.UserDataSerializer
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-
-import com.scto.clbm.core.di.IoDispatcher
-import com.scto.clbm.core.preferences.model.UserDataPreferences
-import com.scto.clbm.core.preferences.utils.UserDataSerializer
-
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
-
 import javax.inject.Singleton
 
 /**

@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Thomas Schmidl
+ * Copyright 2023 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,6 @@ package com.scto.clbm.feature.settings.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.lifecycle.HiltViewModel
 import com.scto.clbm.core.extensions.asOneTimeEvent
 import com.scto.clbm.core.ui.utils.UiState
 import com.scto.clbm.core.ui.utils.getPreferredLocale
@@ -28,6 +27,7 @@ import com.scto.clbm.data.model.settings.DarkThemeConfig
 import com.scto.clbm.data.model.settings.Language
 import com.scto.clbm.data.model.settings.Settings
 import com.scto.clbm.data.repository.settings.SettingsRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.catch

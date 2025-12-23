@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Thomas Schmidl
+ * Copyright 2023 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ package com.scto.clbm.core.preferences.data
 import com.scto.clbm.core.preferences.model.DarkThemeConfigPreferences
 import com.scto.clbm.core.preferences.model.PreferencesUserProfile
 import com.scto.clbm.core.preferences.model.UserDataPreferences
-
 import kotlinx.coroutines.flow.Flow
 
 /**

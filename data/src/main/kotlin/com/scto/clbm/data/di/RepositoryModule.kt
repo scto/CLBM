@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Thomas Schmidl
+ * Copyright 2025 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,10 +16,6 @@
 
 package com.scto.clbm.data.di
 
-import dagger.Binds
-import dagger.Module
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
 import com.scto.clbm.data.repository.auth.AuthRepository
 import com.scto.clbm.data.repository.auth.AuthRepositoryImpl
 import com.scto.clbm.data.repository.home.HomeRepository
@@ -28,6 +24,10 @@ import com.scto.clbm.data.repository.profile.ProfileRepository
 import com.scto.clbm.data.repository.profile.ProfileRepositoryImpl
 import com.scto.clbm.data.repository.settings.SettingsRepository
 import com.scto.clbm.data.repository.settings.SettingsRepositoryImpl
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 /**

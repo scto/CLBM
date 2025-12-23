@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Thomas Schmidl
+ * Copyright 2025 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,13 +19,13 @@ package com.scto.clbm.feature.home.ui.home
 import androidx.compose.runtime.Immutable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.lifecycle.HiltViewModel
 import com.scto.clbm.core.extensions.asOneTimeEvent
 import com.scto.clbm.core.extensions.stateInDelayed
 import com.scto.clbm.core.ui.utils.UiState
 import com.scto.clbm.core.ui.utils.updateWith
 import com.scto.clbm.data.model.home.Jetpack
 import com.scto.clbm.data.repository.home.HomeRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn

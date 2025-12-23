@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Thomas Schmidl
+ * Copyright 2025 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,11 +19,9 @@ package com.scto.clbm.firebase.firestore.data
 import com.google.firebase.firestore.FirebaseFirestore
 import com.scto.clbm.core.di.IoDispatcher
 import com.scto.clbm.firebase.firestore.model.FirebaseJetpack
-
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-
 import javax.inject.Inject
 
 /**

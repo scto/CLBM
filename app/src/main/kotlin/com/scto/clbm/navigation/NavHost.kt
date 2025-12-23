@@ -19,8 +19,6 @@ package com.scto.clbm.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
-
-import com.scto.clbm.ui.JetpackAppState
 import com.scto.clbm.core.ui.utils.SnackbarAction
 import com.scto.clbm.feature.auth.navigation.AuthNavGraph
 import com.scto.clbm.feature.auth.navigation.authNavGraph
@@ -34,6 +32,7 @@ import com.scto.clbm.feature.home.navigation.homeScreen
 import com.scto.clbm.feature.home.navigation.itemScreen
 import com.scto.clbm.feature.home.navigation.navigateToItemScreen
 import com.scto.clbm.feature.profile.navigation.profileScreen
+import com.scto.clbm.ui.JetpackAppState
 
 /**
  * Composable function that sets up the navigation host for the Jetpack Compose application.

@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Thomas Schmidl
+ * Copyright 2023 Thomas Schmid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,12 +16,12 @@
 
 package com.scto.clbm.core.di
 
+import com.scto.clbm.core.utils.StringDecoder
+import com.scto.clbm.core.utils.UriDecoder
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import com.scto.clbm.core.utils.StringDecoder
-import com.scto.clbm.core.utils.UriDecoder
 
 /**
  * Dagger module providing bindings for StringDecoder implementations.
